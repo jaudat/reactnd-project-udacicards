@@ -1,14 +1,18 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from 'react'
+import { FlatList} from 'react-native'
 
-import {CenteredContentView} from '../../themes/container'
+import {DeckOverview} from '../../components/DeckOverview/index'
+import {getDecks} from '../../utils/decks'
 
 export default function DeckList({navigation}) {
+  const decks = Object.values( getDecks() )
+  const renderDeck = ({item}) => <DeckOverview {...item} />
+
   return (
-    <CenteredContentView>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Changes you make will automatically reload.</Text>
-      <Text>Shake your phone to open the developer menu.</Text>
-    </CenteredContentView>
-  );
+    <FlatList
+      data={decks}
+      renderItem={renderDeck}
+      keyExtractor={item => item.title}
+    />
+  )
 }
