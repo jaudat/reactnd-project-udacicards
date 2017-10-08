@@ -23,4 +23,4 @@ const data = {
   }
 }
 
-export const getDecks = () => data
+export const listDecks = () => data

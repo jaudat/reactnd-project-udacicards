@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { View, StatusBar } from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import { Constants } from 'expo'
 
 import {FullWidthView} from './themes/container'
+import {setDecks} from './utils/api'
+import {listDecks} from './utils/decks'
 import DeckList from './scenes/DeckList'
 
 function UdaciStatusBar({backgroundColor, ...props}) {
@@ -17,10 +19,16 @@ function UdaciStatusBar({backgroundColor, ...props}) {
 const Stack = StackNavigator({
   Home: {
     screen: DeckList
-  }
+  },
+  // DeckCover: {
+  //   screen: DeckCover
+  // }
 })
 
-export default class App extends React.Component {
+export default class App extends Component {
+  componentDidMount = () =>
+    setDecks(JSON.stringify(listDecks()))
+
   render() {
     return (
       <FullWidthView>

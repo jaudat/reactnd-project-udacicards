@@ -1,18 +1,28 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { FlatList} from 'react-native'
 
 import {DeckOverview} from '../../components/DeckOverview/index'
-import {getDecks} from '../../utils/decks'
+import {listDecks} from '../../utils/api'
 
-export default function DeckList({navigation}) {
-  const decks = Object.values( getDecks() )
-  const renderDeck = ({item}) => <DeckOverview {...item} />
+export default class DeckList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {decks: {}}
+  }
 
-  return (
+  componentDidMount = () => {
+    const me = this
+    listDecks().then(
+      allDecks => me.setState({decks: Object.values(allDecks)})
+    )
+  }
+
+  renderDeck = ({item}) => <DeckOverview {...item} navigation={this.props.navigation}/>
+
+  render = () =>
     <FlatList
-      data={decks}
-      renderItem={renderDeck}
+      data={this.state.decks}
+      renderItem={this.renderDeck}
       keyExtractor={item => item.title}
     />
-  )
 }
