@@ -17,7 +17,7 @@ export const DeckOverview = ({navigation, title, questions}) => {
         backgroundColor: 'yellow',
         flex: 1,
         padding: 20,
-      }} underlayColor='orange' onPress={() => navigation.navigate('DeckCover', {title})}>
+      }} underlayColor='orange' onPress={() => navigation.navigate('DeckCover', {title: title})}>
         <Text>{title} ({questions.length} cards)</Text>
       </TouchableHighlight>
     </CenteredContentView>

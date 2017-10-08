@@ -7,6 +7,7 @@ import {FullWidthView} from './themes/container'
 import {setDecks} from './utils/api'
 import {listDecks} from './utils/decks'
 import DeckList from './scenes/DeckList'
+import DeckCover from './scenes/DeckCover'
 
 function UdaciStatusBar({backgroundColor, ...props}) {
   return (
@@ -20,9 +21,9 @@ const Stack = StackNavigator({
   Home: {
     screen: DeckList
   },
-  // DeckCover: {
-  //   screen: DeckCover
-  // }
+  DeckCover: {
+    screen: DeckCover
+  }
 })
 
 export default class App extends Component {

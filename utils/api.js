@@ -7,7 +7,10 @@ export const setDecks = (dictionary) => {
 
 export const getDeck = key =>
   AsyncStorage.getItem(APP_STORAGE_KEY).then(
-    results => JSON.parse(results)[key]
+    results => {
+      debugger;
+      return JSON.parse(results)[key]
+    }
   )
 
 export const listDecks = () =>
