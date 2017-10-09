@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Text, TouchableOpacity} from 'react-native'
 
 import {CenteredContentView} from '../../themes/container'
+import {BlackTouchableOpacity, WhiteTouchableOpacity} from '../../themes/buttons'
 
 export default class CardInQuiz extends Component {
   constructor(props) {
@@ -75,29 +76,15 @@ export default class CardInQuiz extends Component {
             {this.state.correctAnswers}/{this.props.navigation.state.params.questions.length}
           </Text>
 
-          <TouchableOpacity style={{
-            backgroundColor: 'white',
-            borderColor: 'black',
-            borderStyle: 'solid',
-            borderWidth: 2,
-            margin: 10,
-            padding: 15,
-          }} onPress={this.restartQuiz}>
+          <WhiteTouchableOpacity onPress={this.restartQuiz}>
             <Text>Restart Quiz</Text>
-          </TouchableOpacity>
+          </WhiteTouchableOpacity>
 
-          <TouchableOpacity style={{
-            backgroundColor: 'black',
-            borderColor: 'black',
-            borderStyle: 'solid',
-            borderWidth: 2,
-            margin: 10,
-            padding: 15,
-          }}>
-            <Text style={{color: 'white'}} onPress={
-              () => this.props.navigation.navigate('Home')
-            }>Back to Deck</Text>
-          </TouchableOpacity>
+          <BlackTouchableOpacity onPress={
+            () => this.props.navigation.navigate('Home')
+          }>
+            <Text style={{color: 'white'}}>Back to Deck</Text>
+          </BlackTouchableOpacity>
         </CenteredContentView>
       )
 

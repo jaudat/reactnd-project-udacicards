@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { FlatList} from 'react-native'
+import {View, FlatList, TouchableOpacity, Text} from 'react-native'
 
 import {DeckOverview} from '../../components/DeckOverview/index'
 import {listDecks} from '../../utils/api'
@@ -21,9 +21,11 @@ export default class DeckList extends Component {
   renderDeck = ({item}) => <DeckOverview {...item} navigation={this.props.navigation}/>
 
   render = () =>
-    <FlatList
-      data={this.state.decks}
-      renderItem={this.renderDeck}
-      keyExtractor={item => item.title}
-    />
+    <View>
+      <FlatList
+        data={this.state.decks}
+        renderItem={this.renderDeck}
+        keyExtractor={item => item.title}
+      />
+    </View>
 }
