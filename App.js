@@ -5,11 +5,11 @@ import { Constants } from 'expo'
 
 import {FullWidthView} from './themes/container'
 
-import DeckList from './scenes/DeckList'
-import DeckCover from './scenes/DeckCover'
-import CardInQuiz from './scenes/CardInQuiz'
-import AddCardToDeck from './scenes/AddCardToDeck'
-import CreateNewDeck from './scenes/CreateNewDeck'
+import DeckList from './components/DeckList'
+import DeckCover from './components/DeckCover'
+import CardInQuiz from './components/CardInQuiz'
+import AddCardToDeck from './components/AddCardToDeck'
+import CreateNewDeck from './components/CreateNewDeck'
 
 function UdaciStatusBar({backgroundColor, ...props}) {
   return (
