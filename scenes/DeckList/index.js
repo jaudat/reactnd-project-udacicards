@@ -3,6 +3,7 @@ import {View, FlatList, TouchableOpacity, Text} from 'react-native'
 
 import {DeckOverview} from '../../components/DeckOverview/index'
 import {listDecks} from '../../utils/api'
+import {BlackTouchableOpacity} from '../../themes/buttons'
 
 export default class DeckList extends Component {
   constructor(props) {
@@ -22,6 +23,14 @@ export default class DeckList extends Component {
 
   render = () =>
     <View>
+      <BlackTouchableOpacity onPress={() => this.props.navigation.navigate('NewDeck')}>
+        <Text style={{
+          color: 'white'
+        }}>
+          Create New Deck
+        </Text>
+      </BlackTouchableOpacity>
+
       <FlatList
         data={this.state.decks}
         renderItem={this.renderDeck}
