@@ -11,10 +11,9 @@ export default class DeckList extends Component {
   }
 
   componentDidMount = () => {
-    const me = this
     listDecks().then(
       allDecks => {
-        if (allDecks) me.setState({decks: Object.values(allDecks)})
+        if (allDecks) this.setState({decks: Object.values(allDecks)})
       }
     )
   }

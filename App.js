@@ -10,6 +10,7 @@ import {listDecks} from './utils/decks'
 import DeckList from './scenes/DeckList'
 import DeckCover from './scenes/DeckCover'
 import CardInQuiz from './scenes/CardInQuiz'
+import AddCardToDeck from './scenes/AddCardToDeck'
 
 function UdaciStatusBar({backgroundColor, ...props}) {
   return (
@@ -28,6 +29,9 @@ const Stack = StackNavigator({
   },
   Quiz: {
     screen: CardInQuiz
+  },
+  AddCard: {
+    screen: AddCardToDeck
   }
 })
 

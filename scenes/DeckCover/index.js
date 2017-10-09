@@ -13,10 +13,9 @@ export default class DeckCover extends Component {
   }
 
   componentDidMount = () => {
-    const me = this
     getDeck(this.props.navigation.state.params.title).then(
       deck => {
-        if (deck) me.setState({deck})
+        if (deck) this.setState({deck})
       }
     )
   }
@@ -33,7 +32,7 @@ export default class DeckCover extends Component {
           borderWidth: 2,
           margin: 10,
           padding: 15,
-        }}>
+        }} onPress={() => this.props.navigation.navigate('AddCard', {title: this.state.deck.title})}>
           <Text>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{
