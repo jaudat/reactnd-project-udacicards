@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native'
 
 import {CenteredContentView} from '../../themes/container'
 import {BlackTouchableOpacity, WhiteTouchableOpacity} from '../../themes/buttons'
+import {clearLocalNotification, setLocalNotification} from '../../utils/notification'
 
 export default class CardInQuiz extends Component {
   constructor(props) {
@@ -30,6 +31,14 @@ export default class CardInQuiz extends Component {
   restartQuiz = () => {
     this.setState({'correctAnswers': 0})
     this.setState({'cardIndex': 0})
+    clearLocalNotification()
+      .then(setLocalNotification)
+  }
+
+  gotoHome = () => {
+    clearLocalNotification()
+      .then(setLocalNotification)
+    return this.props.navigation.navigate('Home')
   }
 
   render = () => {
@@ -85,9 +94,7 @@ export default class CardInQuiz extends Component {
             <Text>Restart Quiz</Text>
           </WhiteTouchableOpacity>
 
-          <BlackTouchableOpacity onPress={
-            () => this.props.navigation.navigate('Home')
-          }>
+          <BlackTouchableOpacity onPress={this.gotoHome}>
             <Text style={{color: 'white'}}>Back to Deck</Text>
           </BlackTouchableOpacity>
         </CenteredContentView>

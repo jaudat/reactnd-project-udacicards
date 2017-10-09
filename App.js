@@ -4,6 +4,7 @@ import {StackNavigator} from 'react-navigation'
 import { Constants } from 'expo'
 
 import {FullWidthView} from './themes/container'
+import {setLocalNotification} from './utils/notification'
 
 import DeckList from './components/DeckList'
 import DeckCover from './components/DeckCover'
@@ -38,6 +39,10 @@ const Stack = StackNavigator({
 })
 
 export default class App extends Component {
+
+  componentDidMount = () => {
+    setLocalNotification()
+  }
 
   render() {
     return (
