@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, TouchableOpacity} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 
 import {CenteredContentView} from '../../themes/container'
 import {BlackTouchableOpacity, WhiteTouchableOpacity} from '../../themes/buttons'
@@ -49,23 +49,28 @@ export default class CardInQuiz extends Component {
             <Text style={{color: 'red'}}>{(this.state.stance === 'question') ? 'Answer' : 'Question'}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{
-            backgroundColor: 'green',
-            margin: 10,
-            padding: 15,
-          }} onPress={this.handleRightAnswer}>
-            <Text style={{color: 'white'}}>Correct</Text>
-          </TouchableOpacity>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={{marginLeft: 10, fontSize: 25}}>{this.state.cardIndex}/{this.props.navigation.state.params.questions.length}</Text>
 
-          <TouchableOpacity style={{
-            backgroundColor: 'red',
-            margin: 10,
-            padding: 15,
-          }} onPress={this.handleWrongAnswer}>
-            <Text style={{color: 'white'}}>Incorrect</Text>
-          </TouchableOpacity>
+            <View style={{flex: 1}}/>
 
-          <Text>{this.state.cardIndex}/{this.props.navigation.state.params.questions.length}</Text>
+            <TouchableOpacity style={{
+              backgroundColor: 'green',
+              margin: 10,
+              padding: 15,
+            }} onPress={this.handleRightAnswer}>
+              <Text style={{color: 'white'}}>Correct</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{
+              backgroundColor: 'red',
+              margin: 10,
+              padding: 15,
+            }} onPress={this.handleWrongAnswer}>
+              <Text style={{color: 'white'}}>Incorrect</Text>
+            </TouchableOpacity>
+          </View>
+
         </CenteredContentView>
       )
     } else {
