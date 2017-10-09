@@ -6,8 +6,10 @@ import { Constants } from 'expo'
 import {FullWidthView} from './themes/container'
 import {setDecks} from './utils/api'
 import {listDecks} from './utils/decks'
+
 import DeckList from './scenes/DeckList'
 import DeckCover from './scenes/DeckCover'
+import CardInQuiz from './scenes/CardInQuiz'
 
 function UdaciStatusBar({backgroundColor, ...props}) {
   return (
@@ -23,6 +25,9 @@ const Stack = StackNavigator({
   },
   DeckCover: {
     screen: DeckCover
+  },
+  Quiz: {
+    screen: CardInQuiz
   }
 })
 

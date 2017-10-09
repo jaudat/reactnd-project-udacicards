@@ -22,7 +22,6 @@ export default class DeckCover extends Component {
   }
 
   render = () => {
-    console.log(this.state.deck)
     return (
       <CenteredContentView>
         <Text style={{fontSize: 40}}>{this.state.deck.title}</Text>
@@ -45,7 +44,9 @@ export default class DeckCover extends Component {
           margin: 10,
           padding: 15,
         }}>
-          <Text style={{color: 'white'}}>Start Quiz</Text>
+          <Text style={{color: 'white'}} onPress={
+            () => this.props.navigation.navigate('Quiz', {title: this.state.deck.title, questions: this.state.deck.questions})
+          }>Start Quiz</Text>
         </TouchableOpacity>
       </CenteredContentView>
     )
