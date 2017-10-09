@@ -4,8 +4,6 @@ import {StackNavigator} from 'react-navigation'
 import { Constants } from 'expo'
 
 import {FullWidthView} from './themes/container'
-import {setDecks} from './utils/api'
-import {listDecks} from './utils/decks'
 
 import DeckList from './scenes/DeckList'
 import DeckCover from './scenes/DeckCover'
@@ -36,8 +34,6 @@ const Stack = StackNavigator({
 })
 
 export default class App extends Component {
-  componentDidMount = () =>
-    setDecks(JSON.stringify(listDecks()))
 
   render() {
     return (
